@@ -1,0 +1,3 @@
+res://Scenes/world.tscn
+res://Entities/Player/player.tscn
+res://Entities/Player/player.gd
