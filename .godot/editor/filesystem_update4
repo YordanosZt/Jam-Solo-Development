@@ -1,3 +1,5 @@
 res://Scenes/world.tscn
-res://Entities/Player/player.tscn
 res://Entities/Player/player.gd
+res://Entities/Player/Dude/dude.tscn
+res://Entities/Player/Dude/dude.gd
+res://Entities/Player/player.tscn
