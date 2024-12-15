@@ -24,3 +24,7 @@ func _spawn_ice():
 	_ice.global_rotation = global_rotation
 	_ice.play_anim()
 	add_child(_ice)
+
+
+func _on_hit_box_area_entered(area):
+	die()

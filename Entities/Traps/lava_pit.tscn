@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://da4hibxy73358"]
+
+[ext_resource type="PackedScene" uid="uid://bxorqf7a3cau2" path="res://Reusables/CollisionBoxes/hurt_box.tscn" id="1_8kkeu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_guf8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54eg2"]
+size = Vector2(256, 24)
+
+[node name="LavaPit" type="Node2D"]
+
+[node name="Visual" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0.302231, 0.292974, 1)
+scale = Vector2(208, 16)
+mesh = SubResource("BoxMesh_guf8n")
+
+[node name="HurtBox" parent="." instance=ExtResource("1_8kkeu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_54eg2")

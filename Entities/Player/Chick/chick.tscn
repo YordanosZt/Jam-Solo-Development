@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://rotxrpixltxu"]
+[gd_scene load_steps=7 format=3 uid="uid://rotxrpixltxu"]
 
 [ext_resource type="Script" path="res://Entities/Player/Chick/chick.gd" id="1_spqv6"]
 [ext_resource type="PackedScene" uid="uid://b0yysd1k04w1l" path="res://Entities/Player/Chick/chick_ice.tscn" id="2_kgw4o"]
+[ext_resource type="PackedScene" uid="uid://b50ckesplrdi5" path="res://Reusables/CollisionBoxes/hit_box.tscn" id="3_1wulo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smdtg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iddvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4on54"]
 
 [node name="Chick" type="CharacterBody2D"]
 script = ExtResource("1_spqv6")
@@ -37,3 +40,11 @@ one_shot = true
 
 [node name="IceJumpTimer" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="HitBox" parent="." instance=ExtResource("3_1wulo")]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_4on54")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

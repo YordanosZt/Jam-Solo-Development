@@ -1,28 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=6 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
 [ext_resource type="PackedScene" uid="uid://cqgyr6ikuxj2e" path="res://Entities/Camera/main_camera.tscn" id="3_spg00"]
+[ext_resource type="PackedScene" uid="uid://da4hibxy73358" path="res://Entities/Traps/lava_pit.tscn" id="4_d72v1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
 [node name="World" type="Node2D"]
-
-[node name="fire ground" type="StaticBody2D" parent="."]
-collision_mask = 3
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="fire ground"]
-modulate = Color(1, 0.0431373, 0.219608, 0.129412)
-position = Vector2(580, 328)
-scale = Vector2(1192, 688)
-mesh = SubResource("BoxMesh_6j7tn")
-
-[node name="Polygon2D" type="Polygon2D" parent="fire ground"]
-color = Color(0.933333, 0.239216, 0.215686, 1)
-polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fire ground"]
-polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
 
 [node name="ice ground" type="StaticBody2D" parent="."]
 position = Vector2(1288, 0)
@@ -49,3 +34,33 @@ position = Vector2(136, 464)
 
 [node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
 players = [NodePath("../Chick"), NodePath("../Dude")]
+
+[node name="Fire Env" type="Node2D" parent="."]
+
+[node name="fire ground" type="StaticBody2D" parent="Fire Env"]
+collision_mask = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Fire Env/fire ground"]
+modulate = Color(1, 0.0431373, 0.219608, 0.129412)
+position = Vector2(580, 328)
+scale = Vector2(1192, 688)
+mesh = SubResource("BoxMesh_6j7tn")
+
+[node name="Polygon2D" type="Polygon2D" parent="Fire Env/fire ground"]
+color = Color(0.933333, 0.239216, 0.215686, 1)
+polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire Env/fire ground"]
+polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
+
+[node name="LavaPit" parent="Fire Env" instance=ExtResource("4_d72v1")]
+position = Vector2(832, 568)
+
+[node name="Visual" parent="Fire Env/LavaPit" index="0"]
+position = Vector2(-1.04904e-05, -4)
+scale = Vector2(256, 24)
+
+[node name="CollisionShape2D" parent="Fire Env/LavaPit/HurtBox" index="0"]
+position = Vector2(0, -4)
+
+[editable path="Fire Env/LavaPit"]

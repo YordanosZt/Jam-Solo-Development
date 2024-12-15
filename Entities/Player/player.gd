@@ -7,12 +7,12 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
 
-var current_speed: float = speed
-
 @export var acceleration: float = 1500.0;
 @export var deceleration: float = 1500.0;
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_speed: float = speed
+var checkpoint_pos: Vector2 = Vector2.ZERO
 
 # flags
 var was_on_ground: bool = false
@@ -20,6 +20,9 @@ var can_fall: bool = true
 
 @onready var coyote_timer = %CoyoteTimer
 @onready var jump_buffer_timer = %JumpBufferTimer
+
+func _ready():
+	checkpoint_pos = global_position
 
 func _physics_process(delta):
 	fixed_update(delta)
@@ -36,7 +39,6 @@ func fixed_update(delta):
 	move_and_slide()
 	if (was_on_ground and not is_on_floor()):
 		coyote_timer.start()
-
 
 func _handle_gravity(delta) -> void:
 	if not can_fall:
@@ -94,3 +96,5 @@ func set_can_fall(_can_fall) -> void:
 func set_is_active(active: bool) -> void:
 	is_active = active
 
+func die():
+	global_position = checkpoint_pos

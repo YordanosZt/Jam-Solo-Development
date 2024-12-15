@@ -26,3 +26,6 @@ func _handle_dash():
 		reset_speed()
 		set_can_fall(true)
 		is_dashing = false
+
+func _on_hit_box_area_entered(area):
+	die()

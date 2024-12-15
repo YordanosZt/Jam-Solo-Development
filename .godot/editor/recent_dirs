@@ -1,3 +1,5 @@
+res://Entities/Traps
+res://Reusables/CollisionBoxes
 res://Entities/Camera
 res://Entities/Player/Chick
 res://Entities/Player/Dude

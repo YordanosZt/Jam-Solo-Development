@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b50ckesplrdi5"]
+
+[node name="HitBox" type="Area2D"]
+collision_layer = 0
