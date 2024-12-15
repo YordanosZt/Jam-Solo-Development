@@ -5,6 +5,8 @@ extends Player
 @onready var dash_timer = $Timers/DashTimer
 @onready var dash_delay = $Timers/DashDelay
 
+@onready var visual = $Visual
+
 var is_dashing: bool = false
 var is_in_danger_zone: bool = false
 
@@ -14,11 +16,16 @@ func _physics_process(delta):
 	if not is_dashing and is_in_danger_zone:
 		die()
 	
+	if is_dashing:
+		visual.modulate = Color(1, 1, 1, 0.3)
+	else:
+		visual.modulate = Color(1, 1, 1, 1)
+	
 	if not is_active: return
 	_handle_dash()
 
 func _handle_dash():
-	if Input.is_action_just_pressed("ability") and dash_delay.time_left == 0:
+	if velocity.x != 0 and Input.is_action_just_pressed("ability") and dash_delay.time_left == 0:
 		dash_timer.start()
 		dash_delay.start()
 		

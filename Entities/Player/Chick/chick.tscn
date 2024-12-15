@@ -11,6 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4on54"]
 
 [node name="Chick" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_spqv6")
 ice = ExtResource("2_kgw4o")
 

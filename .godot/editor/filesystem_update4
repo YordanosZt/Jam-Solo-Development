@@ -9,3 +9,5 @@ res://Entities/Player/player.gd
 res://Entities/Player/Chick/chick.tscn
 res://Entities/Player/Chick/chick.gd
 res://Entities/Traps/fire_wall.tscn
+res://Entities/Traps/burning_platform.tscn
+res://Entities/Traps/burning_platform.gd

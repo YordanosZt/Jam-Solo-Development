@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=8 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
 [ext_resource type="PackedScene" uid="uid://cqgyr6ikuxj2e" path="res://Entities/Camera/main_camera.tscn" id="3_spg00"]
 [ext_resource type="PackedScene" uid="uid://da4hibxy73358" path="res://Entities/Traps/lava_pit.tscn" id="4_d72v1"]
 [ext_resource type="PackedScene" uid="uid://bgaep105l2454" path="res://Entities/Traps/fire_wall.tscn" id="5_50att"]
+[ext_resource type="PackedScene" uid="uid://bh6llwcvyh62k" path="res://Entities/Traps/burning_platform.tscn" id="6_om4d2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
@@ -34,7 +35,7 @@ position = Vector2(1696, 520)
 position = Vector2(136, 464)
 
 [node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
-players = [NodePath("../Chick"), NodePath("../Dude")]
+players = [NodePath("../Dude"), NodePath("../Chick")]
 
 [node name="Fire Env" type="Node2D" parent="."]
 
@@ -43,16 +44,16 @@ collision_mask = 3
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Fire Env/fire ground"]
 modulate = Color(1, 0.0431373, 0.219608, 0.129412)
-position = Vector2(580, 328)
-scale = Vector2(1192, 688)
+position = Vector2(168, 328)
+scale = Vector2(2016, 688)
 mesh = SubResource("BoxMesh_6j7tn")
 
 [node name="Polygon2D" type="Polygon2D" parent="Fire Env/fire ground"]
 color = Color(0.933333, 0.239216, 0.215686, 1)
-polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
+polygon = PackedVector2Array(1088, 0, 1088, 64, 64, 64, 64, 320, 0, 320, 0, 224, -88, 224, -88, 184, 0, 184, 0, 64, -768, 64, -768, 408, -640, 408, -640, 448, -768, 448, -768, 616, -64, 616, -64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -832, 664, -832, 512, -832, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire Env/fire ground"]
-polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
+polygon = PackedVector2Array(1088, 0, 1088, 64, 64, 64, 64, 320, 0, 320, 0, 224, -88, 224, -88, 184, 0, 184, 0, 64, -768, 64, -768, 408, -640, 408, -640, 448, -768, 448, -768, 616, -64, 616, -64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -832, 664, -832, 512, -832, 0)
 
 [node name="FireWall" parent="Fire Env" instance=ExtResource("5_50att")]
 position = Vector2(368, 528)
@@ -60,3 +61,29 @@ position = Vector2(368, 528)
 [node name="LavaPit" parent="Fire Env" instance=ExtResource("4_d72v1")]
 position = Vector2(832, 568)
 scale = Vector2(1.22222, -1.06667)
+
+[node name="LavaPit4" parent="Fire Env" instance=ExtResource("4_d72v1")]
+position = Vector2(-416, 576)
+scale = Vector2(3.40734, 4.58712)
+
+[node name="BurningPlatform" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(264, 504)
+
+[node name="BurningPlatform2" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(-184, 488)
+
+[node name="BurningPlatform4" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(-424, 456)
+scale = Vector2(0.98393, 1)
+
+[node name="BurningPlatform5" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(-528, 344)
+
+[node name="BurningPlatform7" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(-712, 280)
+
+[node name="BurningPlatform9" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(-496, 208)
+
+[node name="BurningPlatform11" parent="Fire Env" instance=ExtResource("6_om4d2")]
+position = Vector2(-216, 216)
