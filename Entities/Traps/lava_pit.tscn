@@ -4,8 +4,8 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_guf8n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_54eg2"]
-size = Vector2(256, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eum1c"]
+size = Vector2(208, 16)
 
 [node name="LavaPit" type="Node2D"]
 
@@ -17,4 +17,4 @@ mesh = SubResource("BoxMesh_guf8n")
 [node name="HurtBox" parent="." instance=ExtResource("1_8kkeu")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_54eg2")
+shape = SubResource("RectangleShape2D_eum1c")

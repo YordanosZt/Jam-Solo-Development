@@ -8,3 +8,4 @@ res://Entities/Player/player.tscn
 res://Entities/Player/player.gd
 res://Entities/Player/Chick/chick.tscn
 res://Entities/Player/Chick/chick.gd
+res://Entities/Traps/fire_wall.tscn

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=7 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
 [ext_resource type="PackedScene" uid="uid://cqgyr6ikuxj2e" path="res://Entities/Camera/main_camera.tscn" id="3_spg00"]
 [ext_resource type="PackedScene" uid="uid://da4hibxy73358" path="res://Entities/Traps/lava_pit.tscn" id="4_d72v1"]
+[ext_resource type="PackedScene" uid="uid://bgaep105l2454" path="res://Entities/Traps/fire_wall.tscn" id="5_50att"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
@@ -53,14 +54,9 @@ polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire Env/fire ground"]
 polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 512, 576, 512, 448, 704, 448, 704, 576, 960, 576, 960, 512, 1088, 512, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
 
+[node name="FireWall" parent="Fire Env" instance=ExtResource("5_50att")]
+position = Vector2(368, 528)
+
 [node name="LavaPit" parent="Fire Env" instance=ExtResource("4_d72v1")]
 position = Vector2(832, 568)
-
-[node name="Visual" parent="Fire Env/LavaPit" index="0"]
-position = Vector2(-1.04904e-05, -4)
-scale = Vector2(256, 24)
-
-[node name="CollisionShape2D" parent="Fire Env/LavaPit/HurtBox" index="0"]
-position = Vector2(0, -4)
-
-[editable path="Fire Env/LavaPit"]
+scale = Vector2(1.22222, -1.06667)

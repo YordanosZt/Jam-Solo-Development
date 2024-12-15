@@ -6,9 +6,13 @@ extends Player
 @onready var dash_delay = $Timers/DashDelay
 
 var is_dashing: bool = false
+var is_in_danger_zone: bool = false
 
 func _physics_process(delta):
 	fixed_update(delta)
+	
+	if not is_dashing and is_in_danger_zone:
+		die()
 	
 	if not is_active: return
 	_handle_dash()
@@ -28,4 +32,7 @@ func _handle_dash():
 		is_dashing = false
 
 func _on_hit_box_area_entered(area):
-	die()
+	is_in_danger_zone = true
+
+func _on_hit_box_area_exited(area):
+	is_in_danger_zone = false
