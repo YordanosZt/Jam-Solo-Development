@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=5 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
+[ext_resource type="PackedScene" uid="uid://cqgyr6ikuxj2e" path="res://Entities/Camera/main_camera.tscn" id="3_spg00"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
@@ -28,7 +29,7 @@ position = Vector2(1288, 0)
 collision_mask = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="ice ground"]
-color = Color(0.197074, 8.73092e-05, 0.663764, 1)
+color = Color(0.363339, 0.293758, 1, 1)
 polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 1088, 576, 1088, 320, 960, 320, 960, 256, 1088, 256, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ice ground"]
@@ -45,4 +46,6 @@ position = Vector2(1696, 520)
 
 [node name="Dude" parent="." instance=ExtResource("2_18qua")]
 position = Vector2(136, 464)
-is_active = true
+
+[node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
+players = [NodePath("../Chick"), NodePath("../Dude")]

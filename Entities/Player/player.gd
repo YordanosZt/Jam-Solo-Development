@@ -22,12 +22,13 @@ var can_fall: bool = true
 @onready var jump_buffer_timer = %JumpBufferTimer
 
 func _physics_process(delta):
-	if not is_active: return
-	
 	fixed_update(delta)
 
 func fixed_update(delta):
 	_handle_gravity(delta)
+	
+	if not is_active: return
+	
 	_handle_jump()
 	_handle_move(delta)
 	
@@ -57,7 +58,7 @@ func _handle_jump() -> void:
 		velocity.y /= 2
 
 func start_buffer_timer() -> void:
-		jump_buffer_timer.start()
+	jump_buffer_timer.start()
 
 func should_jump() -> bool:
 	# normal jump &
@@ -72,7 +73,7 @@ func should_jump() -> bool:
 	return false
 
 func jump(vel: float = jump_velocity) -> void:
-		velocity.y = vel
+	velocity.y = vel
 
 func _handle_move(delta) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
@@ -89,3 +90,7 @@ func reset_speed() -> void:
 
 func set_can_fall(_can_fall) -> void:
 	can_fall = _can_fall
+
+func set_is_active(active: bool) -> void:
+	is_active = active
+

@@ -1,8 +1,8 @@
-res://Entities/Player/Chick/chick.tscn
+res://Entities/Camera/main_camera.tscn
+res://Entities/Camera/main_camera.gd
 res://Scenes/world.tscn
+res://Entities/Player/Chick/chick.tscn
+res://Entities/Player/player.tscn
+res://Entities/Player/player.gd
 res://Entities/Player/Dude/dude.gd
 res://Entities/Player/Chick/chick.gd
-res://Entities/Player/player.gd
-res://Entities/Player/Chick/chick_ice.tscn
-res://Entities/Player/Chick/chick_ice.gd
-res://Entities/Player/player.tscn

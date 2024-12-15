@@ -8,9 +8,9 @@ extends Player
 var is_dashing: bool = false
 
 func _physics_process(delta):
-	if not is_active: return
-	
 	fixed_update(delta)
+	
+	if not is_active: return
 	_handle_dash()
 
 func _handle_dash():

@@ -7,9 +7,9 @@ var ice_jump_vel: float = -800.0
 @onready var ice_jump_timer = $Timers/IceJumpTimer
 
 func _physics_process(delta):
-	if not is_active: return
-	
 	fixed_update(delta)
+	
+	if not is_active: return
 	_handle_ice_jump()
 
 func _handle_ice_jump():

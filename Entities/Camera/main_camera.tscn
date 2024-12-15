@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqgyr6ikuxj2e"]
+
+[ext_resource type="Script" path="res://Entities/Camera/main_camera.gd" id="1_dyq28"]
+[ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="2_vyp4n"]
+[ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="3_4vf58"]
+
+[node name="MainCamera" type="Camera2D"]
+position_smoothing_enabled = true
+script = ExtResource("1_dyq28")
+players = [ExtResource("2_vyp4n"), ExtResource("3_4vf58")]
