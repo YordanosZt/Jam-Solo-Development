@@ -8,7 +8,7 @@ var return_time: float = 2.0
 
 var is_active: bool = true
 
-func _on_check_player_body_entered(body):
+func _on_check_player_body_entered(_body):
 	delay.wait_time = die_time
 	delay.start()
 

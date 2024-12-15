@@ -26,5 +26,5 @@ func _spawn_ice():
 	add_child(_ice)
 
 
-func _on_hit_box_area_entered(area):
+func _on_hit_box_area_entered(_area):
 	die()

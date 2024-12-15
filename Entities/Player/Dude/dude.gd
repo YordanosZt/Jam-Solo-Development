@@ -38,8 +38,8 @@ func _handle_dash():
 		set_can_fall(true)
 		is_dashing = false
 
-func _on_hit_box_area_entered(area):
+func _on_hit_box_area_entered(_area):
 	is_in_danger_zone = true
 
-func _on_hit_box_area_exited(area):
+func _on_hit_box_area_exited(_area):
 	is_in_danger_zone = false

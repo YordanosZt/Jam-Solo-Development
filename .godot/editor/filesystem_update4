@@ -13,3 +13,5 @@ res://Entities/Traps/burning_platform.tscn
 res://Entities/Traps/burning_platform.gd
 res://Entities/Traps/spinning_blade.tscn
 res://Entities/Traps/spinning_blade.gd
+res://Entities/Traps/ice/ice_spikes.tscn
+res://Entities/Traps/fire/burning_platform.gd

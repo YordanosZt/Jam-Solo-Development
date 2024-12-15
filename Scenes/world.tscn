@@ -1,33 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=10 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
 [ext_resource type="PackedScene" uid="uid://cqgyr6ikuxj2e" path="res://Entities/Camera/main_camera.tscn" id="3_spg00"]
-[ext_resource type="PackedScene" uid="uid://da4hibxy73358" path="res://Entities/Traps/lava_pit.tscn" id="4_d72v1"]
-[ext_resource type="PackedScene" uid="uid://bgaep105l2454" path="res://Entities/Traps/fire_wall.tscn" id="5_50att"]
-[ext_resource type="PackedScene" uid="uid://bh6llwcvyh62k" path="res://Entities/Traps/burning_platform.tscn" id="6_om4d2"]
-[ext_resource type="PackedScene" uid="uid://ckdflwhi3toxa" path="res://Entities/Traps/spinning_blade.tscn" id="7_spqki"]
+[ext_resource type="PackedScene" uid="uid://da4hibxy73358" path="res://Entities/Traps/fire/lava_pit.tscn" id="4_d72v1"]
+[ext_resource type="PackedScene" uid="uid://bgaep105l2454" path="res://Entities/Traps/fire/fire_wall.tscn" id="5_50att"]
+[ext_resource type="PackedScene" uid="uid://bh6llwcvyh62k" path="res://Entities/Traps/fire/burning_platform.tscn" id="6_om4d2"]
+[ext_resource type="PackedScene" uid="uid://ckdflwhi3toxa" path="res://Entities/Traps/fire/spinning_blade.tscn" id="7_spqki"]
+[ext_resource type="PackedScene" uid="uid://cnddv6x2kwfrb" path="res://Entities/Traps/ice/ice_spikes.tscn" id="8_nnea0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
 [node name="World" type="Node2D"]
-
-[node name="ice ground" type="StaticBody2D" parent="."]
-position = Vector2(1288, 0)
-collision_mask = 3
-
-[node name="Polygon2D" type="Polygon2D" parent="ice ground"]
-color = Color(0.363339, 0.293758, 1, 1)
-polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 1088, 576, 1088, 320, 960, 320, 960, 256, 1088, 256, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ice ground"]
-polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 512, 192, 512, 192, 576, 1088, 576, 1088, 320, 960, 320, 960, 256, 1088, 256, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ice ground"]
-modulate = Color(0.446318, 0.46171, 1, 0.129412)
-position = Vector2(580, 328)
-scale = Vector2(1192, 688)
-mesh = SubResource("BoxMesh_6j7tn")
 
 [node name="Chick" parent="." instance=ExtResource("1_ymemi")]
 position = Vector2(1696, 520)
@@ -96,3 +80,112 @@ position = Vector2(968, 456)
 
 [node name="SpinningBlade4" parent="Fire Env" instance=ExtResource("7_spqki")]
 position = Vector2(968, 488)
+
+[node name="Ice Env" type="Node2D" parent="."]
+
+[node name="ice ground" type="StaticBody2D" parent="Ice Env"]
+position = Vector2(1288, 0)
+collision_mask = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="Ice Env/ice ground"]
+color = Color(0.363339, 0.293758, 1, 1)
+polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 144, 312, 144, 312, 96, 440, 96, 440, 144, 696, 144, 696, 168, 416, 168, 416, 128, 336, 128, 336, 168, 64, 168, 64, 256, 352, 256, 352, 240, 400, 240, 400, 256, 824, 256, 824, 288, 64, 288, 64, 512, 192, 512, 192, 576, 1088, 576, 1088, 320, 960, 320, 960, 256, 1088, 256, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice Env/ice ground"]
+polygon = PackedVector2Array(64, 0, 1088, 0, 1088, 64, 64, 64, 64, 144, 312, 144, 312, 96, 440, 96, 440, 144, 696, 144, 696, 168, 416, 168, 416, 128, 336, 128, 336, 168, 64, 168, 64, 256, 352, 256, 352, 240, 400, 240, 400, 256, 824, 256, 824, 288, 64, 288, 64, 512, 192, 512, 192, 576, 1088, 576, 1088, 320, 960, 320, 960, 256, 1088, 256, 1088, 0, 1160, 0, 1160, 656, -8, 664, -8, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ice Env/ice ground"]
+modulate = Color(0.446318, 0.46171, 1, 0.129412)
+position = Vector2(576, 328)
+scale = Vector2(1192, 688)
+mesh = SubResource("BoxMesh_6j7tn")
+
+[node name="Hazards" type="Node2D" parent="Ice Env"]
+
+[node name="IceSpikes" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(2248, 270)
+rotation = -1.57079
+
+[node name="IceSpikes2" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(2248, 282)
+rotation = -1.57079
+
+[node name="IceSpikes3" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(2248, 294)
+rotation = -1.57079
+
+[node name="IceSpikes5" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1648, 240)
+
+[node name="IceSpikes6" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1664, 240)
+
+[node name="IceSpikes7" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1680, 240)
+
+[node name="IceSpikes8" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1744, 256)
+
+[node name="IceSpikes9" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1760, 256)
+
+[node name="IceSpikes10" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1776, 256)
+
+[node name="IceSpikes14" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1976, 256)
+
+[node name="IceSpikes15" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1992, 256)
+
+[node name="IceSpikes16" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(2008, 256)
+
+[node name="IceSpikes23" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(2104, 256)
+
+[node name="IceSpikes17" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1856, 168)
+rotation = 3.14159
+
+[node name="IceSpikes18" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1872, 168)
+rotation = 3.14159
+
+[node name="IceSpikes19" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1888, 168)
+rotation = 3.14159
+
+[node name="IceSpikes24" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1392, 256)
+
+[node name="IceSpikes25" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1408, 256)
+
+[node name="IceSpikes26" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1424, 256)
+
+[node name="IceSpikes27" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1528, 256)
+
+[node name="IceSpikes28" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1544, 256)
+
+[node name="IceSpikes29" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1560, 256)
+
+[node name="IceSpikes30" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1456, 168)
+rotation = 3.14159
+
+[node name="IceSpikes31" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1472, 168)
+rotation = 3.14159
+
+[node name="IceSpikes32" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(1488, 168)
+rotation = 3.14159
+
+[node name="IceSpikes4" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
+position = Vector2(2248, 306)
+rotation = -1.57079

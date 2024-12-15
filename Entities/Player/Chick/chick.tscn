@@ -46,6 +46,7 @@ one_shot = true
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_4on54")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

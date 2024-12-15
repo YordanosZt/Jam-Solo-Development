@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnddv6x2kwfrb"]
+
+[ext_resource type="PackedScene" uid="uid://bxorqf7a3cau2" path="res://Reusables/CollisionBoxes/hurt_box.tscn" id="1_bn6qm"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_7dxdo"]
+
+[node name="IceSpikes" type="Node2D"]
+
+[node name="Visual" type="MeshInstance2D" parent="."]
+modulate = Color(0.121569, 0.894118, 1, 1)
+position = Vector2(2.27374e-13, -6)
+rotation = -3.14159
+scale = Vector2(11.9706, 11.9706)
+mesh = SubResource("PrismMesh_7dxdo")
+
+[node name="HurtBox" parent="." instance=ExtResource("1_bn6qm")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+polygon = PackedVector2Array(-6, 0, 6, 0, 0, -12)

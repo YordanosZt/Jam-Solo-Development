@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bh6llwcvyh62k"]
 
-[ext_resource type="Script" path="res://Entities/Traps/burning_platform.gd" id="1_wffkw"]
+[ext_resource type="Script" path="res://Entities/Traps/fire/burning_platform.gd" id="1_wffkw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u4s4o"]
 

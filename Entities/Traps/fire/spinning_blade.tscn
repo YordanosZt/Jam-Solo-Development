@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckdflwhi3toxa"]
 
 [ext_resource type="PackedScene" uid="uid://bxorqf7a3cau2" path="res://Reusables/CollisionBoxes/hurt_box.tscn" id="1_6rrbi"]
-[ext_resource type="Script" path="res://Entities/Traps/spinning_blade.gd" id="1_r2011"]
+[ext_resource type="Script" path="res://Entities/Traps/fire/spinning_blade.gd" id="1_r2011"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lkvit"]
 

@@ -14,9 +14,11 @@ collision_layer = 2
 script = ExtResource("1_qk3r2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_cwe56")
 
 [node name="Visual" type="Node2D" parent="."]
+position = Vector2(0, -10)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Visual"]
 modulate = Color(1, 0.321569, 0.345098, 1)
@@ -47,6 +49,7 @@ one_shot = true
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_ry46b")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
