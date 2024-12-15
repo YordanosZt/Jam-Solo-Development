@@ -5,12 +5,15 @@ extends Camera2D
 var active_player : CharacterBody2D
 var active_idx: int = 0
 
+var y_offset: float = -100.0
+
 func _ready():
 	active_player = get_node(players[active_idx])
-	
 	active_player.set_is_active(true)
+	
+	offset = Vector2(0, y_offset)
 
-func _process(delta):
+func _process(_delta):
 	handle_switch()
 	
 	update_position()

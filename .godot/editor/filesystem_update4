@@ -6,3 +6,4 @@ res://Entities/Player/player.tscn
 res://Entities/Player/player.gd
 res://Entities/Player/Dude/dude.gd
 res://Entities/Player/Chick/chick.gd
+res://Entities/Player/Dude/dude.tscn
