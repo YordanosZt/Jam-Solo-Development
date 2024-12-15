@@ -11,3 +11,5 @@ res://Entities/Player/Chick/chick.gd
 res://Entities/Traps/fire_wall.tscn
 res://Entities/Traps/burning_platform.tscn
 res://Entities/Traps/burning_platform.gd
+res://Entities/Traps/spinning_blade.tscn
+res://Entities/Traps/spinning_blade.gd

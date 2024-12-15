@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckdflwhi3toxa"]
+
+[ext_resource type="PackedScene" uid="uid://bxorqf7a3cau2" path="res://Reusables/CollisionBoxes/hurt_box.tscn" id="1_6rrbi"]
+[ext_resource type="Script" path="res://Entities/Traps/spinning_blade.gd" id="1_r2011"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lkvit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksmda"]
+
+[node name="SpinningBlade" type="Node2D"]
+position = Vector2(42, 31)
+script = ExtResource("1_r2011")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Visuals"]
+scale = Vector2(6, 20)
+mesh = SubResource("BoxMesh_lkvit")
+
+[node name="HurtBox" parent="." instance=ExtResource("1_6rrbi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_ksmda")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="LeftRay" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-16, 0)
+
+[node name="RightRay" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(16, 0)
