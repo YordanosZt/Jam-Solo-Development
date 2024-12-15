@@ -9,6 +9,7 @@
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_epl6b")
+is_active = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rp7ea")

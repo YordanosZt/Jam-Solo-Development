@@ -1,5 +1,8 @@
+res://Entities/Player/Chick/chick.tscn
 res://Scenes/world.tscn
-res://Entities/Player/player.gd
-res://Entities/Player/Dude/dude.tscn
 res://Entities/Player/Dude/dude.gd
+res://Entities/Player/Chick/chick.gd
+res://Entities/Player/player.gd
+res://Entities/Player/Chick/chick_ice.tscn
+res://Entities/Player/Chick/chick_ice.gd
 res://Entities/Player/player.tscn

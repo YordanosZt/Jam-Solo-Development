@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://rotxrpixltxu"]
+
+[ext_resource type="Script" path="res://Entities/Player/Chick/chick.gd" id="1_spqv6"]
+[ext_resource type="PackedScene" uid="uid://b0yysd1k04w1l" path="res://Entities/Player/Chick/chick_ice.tscn" id="2_kgw4o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smdtg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iddvn"]
+
+[node name="Chick" type="CharacterBody2D"]
+script = ExtResource("1_spqv6")
+ice = ExtResource("2_kgw4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_smdtg")
+
+[node name="Visual" type="Node2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Visual"]
+modulate = Color(4.04298e-06, 0.649516, 0.869223, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_iddvn")
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="IceJumpTimer" type="Timer" parent="Timers"]
+one_shot = true

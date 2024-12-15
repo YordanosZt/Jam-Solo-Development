@@ -2,6 +2,8 @@ class_name Player
 
 extends CharacterBody2D
 
+@export var is_active: bool = false
+
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
 
@@ -20,6 +22,8 @@ var can_fall: bool = true
 @onready var jump_buffer_timer = %JumpBufferTimer
 
 func _physics_process(delta):
+	if not is_active: return
+	
 	fixed_update(delta)
 
 func fixed_update(delta):
@@ -42,19 +46,33 @@ func _handle_gravity(delta) -> void:
 func _handle_jump() -> void:
 	# jump buffer
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
-		jump_buffer_timer.start()
+		start_buffer_timer()
 	
-	if jump_buffer_timer.time_left > 0 and is_on_floor():
-		velocity.y = jump_velocity
-	
-	# normal jump &
-	# coyote jump
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer.time_left > 0):
+	# jump
+	if Input.is_action_just_pressed("jump") and should_jump():
 		velocity.y = jump_velocity
 	
 	# variable jump height
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y /= 2
+
+func start_buffer_timer() -> void:
+		jump_buffer_timer.start()
+
+func should_jump() -> bool:
+	# normal jump &
+	# coyote jump
+	if is_on_floor() or coyote_timer.time_left > 0:
+		return true
+	
+	# jump buffer	
+	if jump_buffer_timer.time_left > 0 and is_on_floor():
+		return true
+	
+	return false
+
+func jump(vel: float = jump_velocity) -> void:
+		velocity.y = vel
 
 func _handle_move(delta) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
