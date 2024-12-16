@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=12 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
@@ -9,21 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://ckdflwhi3toxa" path="res://Entities/Traps/fire/spinning_blade.tscn" id="7_spqki"]
 [ext_resource type="PackedScene" uid="uid://cnddv6x2kwfrb" path="res://Entities/Traps/ice/ice_spikes.tscn" id="8_nnea0"]
 [ext_resource type="PackedScene" uid="uid://bc2fqxx0k4eqq" path="res://Entities/Traps/ice/spiky_platforms.tscn" id="9_ly7qb"]
+[ext_resource type="PackedScene" uid="uid://kha36aycjcw2" path="res://Scenes/fire/fire_map.tscn" id="10_bpj65"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
 [node name="World" type="Node2D"]
 
 [node name="Chick" parent="." instance=ExtResource("1_ymemi")]
-position = Vector2(1416, 488)
+position = Vector2(3801, 1869)
 
 [node name="Dude" parent="." instance=ExtResource("2_18qua")]
-position = Vector2(72, 480)
+position = Vector2(-30, 431)
 
 [node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
-players = [NodePath("../Chick"), NodePath("../Dude")]
+players = [NodePath("../Dude"), NodePath("../Chick")]
 
 [node name="Fire Env" type="Node2D" parent="."]
+position = Vector2(2375, 1397)
 
 [node name="fire ground" type="StaticBody2D" parent="Fire Env"]
 collision_mask = 3
@@ -83,6 +85,7 @@ position = Vector2(968, 456)
 position = Vector2(968, 488)
 
 [node name="Ice Env" type="Node2D" parent="."]
+position = Vector2(2375, 1397)
 
 [node name="ice ground" type="StaticBody2D" parent="Ice Env"]
 position = Vector2(1288, 0)
@@ -196,3 +199,5 @@ position = Vector2(1608, 504)
 
 [node name="SpikyPlatforms2" parent="Ice Env" instance=ExtResource("9_ly7qb")]
 position = Vector2(1824, 456)
+
+[node name="fire_map" parent="." instance=ExtResource("10_bpj65")]

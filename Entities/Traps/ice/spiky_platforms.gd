@@ -23,7 +23,7 @@ func spin(delta) -> void:
 		can_spin = false
 		dxn = 1
 
-func _on_check_player_body_entered(body):
+func _on_check_player_body_entered(_body):
 	start_spin_timer.start()
 
 

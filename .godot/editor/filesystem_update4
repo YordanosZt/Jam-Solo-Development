@@ -1,1 +1,6 @@
 res://Scenes/world.tscn
+res://Entities/Player/Dude/dude.tscn
+res://Entities/Player/Chick/chick.tscn
+res://Entities/Traps/ice/spiky_platforms.tscn
+res://Scenes/fire/fire_map.tscn
+res://Entities/Traps/ice/spiky_platforms.gd
