@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc2fqxx0k4eqq"]
+
+[ext_resource type="Script" path="res://Entities/Traps/ice/spiky_platforms.gd" id="1_n0sdl"]
+[ext_resource type="PackedScene" uid="uid://cnddv6x2kwfrb" path="res://Entities/Traps/ice/ice_spikes.tscn" id="1_r10v3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fi11y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvk7p"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ge3n"]
+size = Vector2(80, 8)
+
+[node name="SpikyPlatforms" type="StaticBody2D"]
+script = ExtResource("1_n0sdl")
+
+[node name="Visuals" type="MeshInstance2D" parent="."]
+modulate = Color(0.297067, 0.654583, 0.935926, 1)
+scale = Vector2(96, 16)
+mesh = SubResource("BoxMesh_fi11y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fvk7p")
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="IceSpikes" parent="Spikes" instance=ExtResource("1_r10v3")]
+position = Vector2(-40, 8)
+rotation = -3.14159
+
+[node name="IceSpikes2" parent="Spikes" instance=ExtResource("1_r10v3")]
+position = Vector2(-24, 8)
+rotation = -3.14159
+
+[node name="IceSpikes3" parent="Spikes" instance=ExtResource("1_r10v3")]
+position = Vector2(-8, 8)
+rotation = -3.14159
+
+[node name="IceSpikes4" parent="Spikes" instance=ExtResource("1_r10v3")]
+position = Vector2(8, 8)
+rotation = -3.14159
+
+[node name="IceSpikes5" parent="Spikes" instance=ExtResource("1_r10v3")]
+position = Vector2(24, 8)
+rotation = -3.14159
+
+[node name="IceSpikes6" parent="Spikes" instance=ExtResource("1_r10v3")]
+position = Vector2(40, 8)
+rotation = -3.14159
+
+[node name="check_player" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check_player"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_4ge3n")
+
+[node name="ReturnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartSpinTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="check_player" to="." method="_on_check_player_body_entered"]
+[connection signal="timeout" from="ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="timeout" from="StartSpinTimer" to="." method="_on_start_spin_timer_timeout"]

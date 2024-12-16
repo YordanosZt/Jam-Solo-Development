@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=11 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
@@ -8,19 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://bh6llwcvyh62k" path="res://Entities/Traps/fire/burning_platform.tscn" id="6_om4d2"]
 [ext_resource type="PackedScene" uid="uid://ckdflwhi3toxa" path="res://Entities/Traps/fire/spinning_blade.tscn" id="7_spqki"]
 [ext_resource type="PackedScene" uid="uid://cnddv6x2kwfrb" path="res://Entities/Traps/ice/ice_spikes.tscn" id="8_nnea0"]
+[ext_resource type="PackedScene" uid="uid://bc2fqxx0k4eqq" path="res://Entities/Traps/ice/spiky_platforms.tscn" id="9_ly7qb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
 [node name="World" type="Node2D"]
 
 [node name="Chick" parent="." instance=ExtResource("1_ymemi")]
-position = Vector2(1696, 520)
+position = Vector2(1416, 488)
 
 [node name="Dude" parent="." instance=ExtResource("2_18qua")]
 position = Vector2(600, 424)
 
 [node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
-players = [NodePath("../Dude"), NodePath("../Chick")]
+players = [NodePath("../Chick"), NodePath("../Dude")]
 
 [node name="Fire Env" type="Node2D" parent="."]
 
@@ -189,3 +190,9 @@ rotation = 3.14159
 [node name="IceSpikes4" parent="Ice Env/Hazards" instance=ExtResource("8_nnea0")]
 position = Vector2(2248, 306)
 rotation = -1.57079
+
+[node name="SpikyPlatforms" parent="Ice Env" instance=ExtResource("9_ly7qb")]
+position = Vector2(1608, 504)
+
+[node name="SpikyPlatforms2" parent="Ice Env" instance=ExtResource("9_ly7qb")]
+position = Vector2(1824, 456)
