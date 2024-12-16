@@ -18,7 +18,7 @@
 position = Vector2(1416, 488)
 
 [node name="Dude" parent="." instance=ExtResource("2_18qua")]
-position = Vector2(600, 424)
+position = Vector2(72, 480)
 
 [node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
 players = [NodePath("../Chick"), NodePath("../Dude")]
