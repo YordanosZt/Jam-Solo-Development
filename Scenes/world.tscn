@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx2ha3133or8i"]
+[gd_scene load_steps=14 format=3 uid="uid://dx2ha3133or8i"]
 
 [ext_resource type="PackedScene" uid="uid://rotxrpixltxu" path="res://Entities/Player/Chick/chick.tscn" id="1_ymemi"]
 [ext_resource type="PackedScene" uid="uid://nvlvwbbhs63k" path="res://Entities/Player/Dude/dude.tscn" id="2_18qua"]
@@ -10,22 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://cnddv6x2kwfrb" path="res://Entities/Traps/ice/ice_spikes.tscn" id="8_nnea0"]
 [ext_resource type="PackedScene" uid="uid://bc2fqxx0k4eqq" path="res://Entities/Traps/ice/spiky_platforms.tscn" id="9_ly7qb"]
 [ext_resource type="PackedScene" uid="uid://kha36aycjcw2" path="res://Scenes/fire/fire_map.tscn" id="10_bpj65"]
+[ext_resource type="PackedScene" uid="uid://cv7wamn3r82t" path="res://Scenes/fire/ice_map.tscn" id="11_1mxef"]
+[ext_resource type="PackedScene" path="res://Scenes/fire/meet_map.tscn" id="12_my54c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j7tn"]
 
 [node name="World" type="Node2D"]
 
 [node name="Chick" parent="." instance=ExtResource("1_ymemi")]
-position = Vector2(3801, 1869)
+position = Vector2(5488, 856)
 
 [node name="Dude" parent="." instance=ExtResource("2_18qua")]
-position = Vector2(-30, 431)
+position = Vector2(-328, 776)
 
 [node name="MainCamera" parent="." instance=ExtResource("3_spg00")]
-players = [NodePath("../Dude"), NodePath("../Chick")]
+players = [NodePath("../Chick"), NodePath("../Dude")]
 
 [node name="Fire Env" type="Node2D" parent="."]
-position = Vector2(2375, 1397)
+visible = false
+position = Vector2(-4640, 3256)
 
 [node name="fire ground" type="StaticBody2D" parent="Fire Env"]
 collision_mask = 3
@@ -85,7 +88,8 @@ position = Vector2(968, 456)
 position = Vector2(968, 488)
 
 [node name="Ice Env" type="Node2D" parent="."]
-position = Vector2(2375, 1397)
+visible = false
+position = Vector2(-4640, 3256)
 
 [node name="ice ground" type="StaticBody2D" parent="Ice Env"]
 position = Vector2(1288, 0)
@@ -201,3 +205,10 @@ position = Vector2(1608, 504)
 position = Vector2(1824, 456)
 
 [node name="fire_map" parent="." instance=ExtResource("10_bpj65")]
+position = Vector2(-296, 448)
+
+[node name="ice_map" parent="." instance=ExtResource("11_1mxef")]
+position = Vector2(5480, 768)
+
+[node name="meet_map" parent="." instance=ExtResource("12_my54c")]
+position = Vector2(2072, 768)

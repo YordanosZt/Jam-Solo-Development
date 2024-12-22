@@ -23,8 +23,8 @@ sources/0 = SubResource("TileSetAtlasSource_0")
 
 [node name="bg" type="MeshInstance2D" parent="."]
 modulate = Color(1, 0.0431373, 0.219608, 0.129412)
-position = Vector2(625, -306.5)
-scale = Vector2(1620, 1627)
+position = Vector2(1103.5, -306.5)
+scale = Vector2(2577, 1627)
 mesh = SubResource("BoxMesh_8tvyn")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -53,16 +53,16 @@ position = Vector2(168, 80)
 position = Vector2(-64, -24)
 
 [node name="SpinningBlade7" parent="fire env items" instance=ExtResource("4_oh7u3")]
-position = Vector2(680, -424)
+position = Vector2(160, -424)
 
 [node name="SpinningBlade8" parent="fire env items" instance=ExtResource("4_oh7u3")]
 position = Vector2(352, -488)
 
 [node name="SpinningBlade10" parent="fire env items" instance=ExtResource("4_oh7u3")]
-position = Vector2(64, -584)
+position = Vector2(224, -584)
 
 [node name="SpinningBlade12" parent="fire env items" instance=ExtResource("4_oh7u3")]
-position = Vector2(576, -664)
+position = Vector2(408, -664)
 
 [node name="SpinningBlade17" parent="fire env items" instance=ExtResource("4_oh7u3")]
 position = Vector2(280, -904)
